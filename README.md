@@ -1,1 +1,3 @@
-# link.zijin.dev
+# a url redirecter and shortener
+
+in developing process
