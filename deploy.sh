@@ -1,10 +1,9 @@
 npm ci
-npm i pm2 typescript serve -g
-git clone git@github.com:icpm/personal-data.git
+npm i pm2 serve -g
 npm run build
 
-cp ../dotenv/api.zijinluo.com.env .env
+cp ../dotenv/link.zijin.dev.env .env
 
-command="cd api.zijinluo.com && git pull && npm ci && cd personal-data && git pull && cd .. && npm run build"
+command="cd link.zijin.dev && git pull && npm ci && npm run build"
 job="0 0 * * * $command"
 cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -

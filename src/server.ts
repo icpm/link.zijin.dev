@@ -1,5 +1,4 @@
 import App from './app';
-
 const server = App.server;
 
 server.on('listening', onListening);
