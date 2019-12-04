@@ -1,10 +1,11 @@
 import * as compression from 'compression';
 import * as cors from 'cors';
-import { config } from 'dotenv';
 import * as express from 'express';
-import { Server } from 'http';
 import * as mongoose from 'mongoose';
+
 import RedirecterModel from './schema';
+import { Server } from 'http';
+import { config } from 'dotenv';
 
 config();
 
@@ -45,10 +46,7 @@ class App {
     this.app.use(cors());
   }
 
-  private async addURL(
-    key_url: string = 'cs4001group',
-    target_url: string = 'https://docs.google.com/presentation/d/1TgxRrGsqMrormKjv1zTN-aEuWUMA7mE9stUo886QGDA/edit?usp=sharing'
-  ): Promise<boolean> {
+  private async addURL(key_url: string, target_url: string): Promise<boolean> {
     const _m = new this.model({ key_url: key_url, target_url: target_url });
     try {
       await _m.save();
